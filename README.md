@@ -1,2 +1,2 @@
-# anko
+# Anko
 Convertisseur Anko --> Kotoba
