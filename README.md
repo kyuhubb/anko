@@ -14,8 +14,8 @@ Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotob
 B) Question --> traduction　ex: 明日 demain</p>
 <h2>Mode A</h2>
 <p>Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est impératif que <br>la question ne contienne aucun espace.<br>
-<p>Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite.<br>
-<p>Cependant la réponse peut inclure autant d'espaces que souhaité.<br>
+Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite.<br>
+Cependant la réponse peut inclure autant d'espaces que souhaité.<br></p>
 <p>exemple :<br>
 Q : わたし/あたし<br>
 R : je <br>
