@@ -20,10 +20,9 @@ Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotob
 Q : わたし/あたし<br>
 R : je <br>
 </p>
-Mode B :
---------
-Ce mode sépare la question de la réponse dès qu'un caractère latin ou non-latin est croisé, de ce fait il est nécessaire que la question et la réponse comportent l'un des caractères non-latin et l'autre des caractères latins.<br>
-La question et la réponse peuvent tout deux contenir autant d'espaces que souhaité.<br>
+<h2>Mode B</h2>
+<p>Ce mode sépare la question de la réponse dès qu'un caractère latin ou non-latin est croisé, de ce fait il est nécessaire que la question et la réponse comportent l'un des caractères non-latin et l'autre des caractères latins<br>
+La question et la réponse peuvent tout deux contenir autant d'espaces que souhaité.
 <br>
 Non-accepté :<br> 
 Q : 歯医者 ou 歯科医<br>
@@ -31,3 +30,4 @@ R : Dentiste<br><br>
 Accepté : <br>
 Q: 歯医者, 歯科医<br>
 R: Dentiste
+</p>
