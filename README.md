@@ -1,8 +1,7 @@
 # Anko
 Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotoba (discord)
 
-Instructions :
---------------
+<h2>Instructions</h2>
 1) Lancer Anki sur Pc
 2) Fichier > Exporter > Cartes avec notes en clair
 3) Lancer la Anko.html
