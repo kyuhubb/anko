@@ -17,8 +17,8 @@ B) Question --> traduction　ex: 明日 demain</p>
 Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite.<br>
 Cependant la réponse peut inclure autant d'espaces que souhaité.<br></p>
 <p>exemple :<br>
-Q : わたし/あたし<br>
-R : je <br>
+Q: わたし/あたし<br>
+R: je <br>
 </p>
 <h2>Mode B</h2>
 <p>Ce mode sépare la question de la réponse dès qu'un caractère latin ou non-latin est croisé, de ce fait il est nécessaire que la question et la réponse comportent l'un des caractères non-latin et l'autre des caractères latins<br>
