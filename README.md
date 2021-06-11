@@ -1,2 +1,2 @@
 # Anko
-Convertisseur pour decks(.txt) Anki vers le format decks Kotoba (.csv)
+Une Webapp permettant de convertir les fichiers .txt exportés depuis Anki vers le format .csv de Kotobabot
