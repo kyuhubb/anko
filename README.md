@@ -8,7 +8,7 @@ Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotob
 4) Copier/Coller le contenu du fichier .txt<br>
 5) Choisir un mode de conversion : "Question --> lecture" ou "Question --> traduction"<br>
 6) Convertir !</p>
-
+ 
 <h2>Les Modes de Conversion :</h2>
 <p>A) Question --> lecture　ex: 明日　あした/あす<br>
 B) Question --> traduction　ex: 明日 demain</p>
@@ -21,6 +21,8 @@ Cependant la réponse peut inclure autant d'espaces que souhaité.<br></p>
 Q: わたし/あたし<br>
 R: je</p>
 
+<p>Lorsqu'une réponse possède plusieurs réponses différentes veuillez séparer ces réponses avec un espace ou l'un des symboles suivants : / \ , ; | 、・ </p>
+
 <h3>Mode B</h3>
 <p>Ce mode sépare la question de la réponse dès qu'un caractère latin ou non-latin est croisé, de ce fait il est nécessaire que la question et la réponse comportent l'un des caractères non-latin et l'autre des caractères latins<br>
 La question et la réponse peuvent tout deux contenir autant d'espaces que souhaité.</p>
@@ -32,3 +34,6 @@ Accepté : <br>
 Q: 歯医者, 歯科医<br>
 R: Dentiste
 </p>
+
+<p>Lorsqu'une réponse possède plusieurs réponses différentes veuillez séparer ces réponses avec l'un des symboles suivants : / \ , ; | 、・ <br>
+remarque: les espaces ne peuvent pas servir de séparateur</p>
