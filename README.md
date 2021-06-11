@@ -27,7 +27,7 @@ La question et la réponse peuvent tout deux contenir autant d'espaces que souha
 <br>
 Non-accepté :<br> 
 Q : 歯医者 ou 歯科医<br>
-R : Dentiste
-Accepté : 
+R : Dentiste<br>
+Accepté : <br>
 Q: 歯医者, 歯科医<br>
 R: Dentiste
