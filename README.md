@@ -10,5 +10,5 @@ Instructions :
 5) Choisir un mode de conversion : "Question --> lecture" ou "Question --> traduction"
 6) Convertir !
 
-Les modes de conversion :
+Les Modes de Conversion :
 -------------------------
