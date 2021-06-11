@@ -12,7 +12,7 @@ Instructions :
 
 Les Modes de Conversion :
 -------------------------
-A . Question --> lecture　ex: 明日　あした/あす\n
+A . Question --> lecture　ex: 明日　あした/あす <br>
 B . Question --> traduction　ex: 明日 demain
 
 A . Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est impératif que la question ne contienne aucun espace, utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite. ex: 「 わたし/あたし je 」 
