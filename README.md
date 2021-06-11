@@ -12,15 +12,16 @@ Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotob
 <h2>Les Modes de Conversion :</h2>
 <p>A) Question --> lecture　ex: 明日　あした/あす<br>
 B) Question --> traduction　ex: 明日 demain</p>
-<h2>Mode A</h2>
+
+<h3>Mode A</h3>
 <p>Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est impératif que <br>la question ne contienne aucun espace.<br>
 Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite.<br>
 Cependant la réponse peut inclure autant d'espaces que souhaité.<br></p>
 <p>exemple :<br>
 Q: わたし/あたし<br>
-R: je <br>
-</p>
-<h2>Mode B</h2>
+R: je</p>
+
+<h3>Mode B</h3>
 <p>Ce mode sépare la question de la réponse dès qu'un caractère latin ou non-latin est croisé, de ce fait il est nécessaire que la question et la réponse comportent l'un des caractères non-latin et l'autre des caractères latins<br>
 La question et la réponse peuvent tout deux contenir autant d'espaces que souhaité.</p>
 <p>
