@@ -15,7 +15,7 @@ Les Modes de Conversion :
 A . Question --> lecture　ex: 明日　あした/あす <br>
 B . Question --> traduction　ex: 明日 demain <br>
 <br>
-A . Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est<br>impératif que la question ne contienne aucun espace.<br>
+A . Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est impératif que <br>la question ne contienne aucun espace.<br>
 Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs mots à la suite.<br>
 ex: 「 わたし/あたし je 」<br> 
 Cependant la réponse peut inclure autant d'espaces que souhaité.<br>
