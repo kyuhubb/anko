@@ -1,5 +1,5 @@
 # Anko
-Une Webapp permettant de convertir les fichiers .txt exportés depuis Anki vers le format .csv de Kotobabot
+Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotoba (discord)
 
 Instructions :
 --------------
