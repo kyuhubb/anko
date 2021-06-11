@@ -12,7 +12,7 @@ Instructions :
 
 Les Modes de Conversion :
 -------------------------
-A) Question --> lecture　ex: 明日　あした/あす <br>
+<p>A) Question --> lecture　ex: 明日　あした/あす</p><br>
 B) Question --> traduction　ex: 明日 demain <br>
 <br>
 Mode A :
