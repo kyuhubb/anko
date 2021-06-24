@@ -33,7 +33,7 @@ Q : 歯医者 ou 歯科医<br>
 R : Dentiste<br><br>
 Accepté : <br>
 Q: 歯医者, 歯科医<br>
-R: Dentiste
+R: Dentiste 
 </p>
 
 <p>Lorsqu'une réponse possède plusieurs réponses différentes veuillez séparer ces réponses avec l'un des symboles suivants : / \ , ; | 、・ <br>
