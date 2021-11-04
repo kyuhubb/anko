@@ -17,6 +17,7 @@ B) Question --> traduction　ex: 明日 demain</p>
 <p>Ce mode sépare la question de la réponse à partir du premier espace qu'il croise, de ce fait il est impératif que <br>la question ne contienne aucun espace.<br>
 Utilisez des virgules, slash ou n'importe quel autre symbole si vous voulez écrire plusieurs variantes d'un même mot.<br>
 Cependant la réponse peut inclure autant d'espaces que souhaité.<br></p>
+<p>à noter qu'un espace dans une réponse sera considéré comme un séparateur pour les réponses multiples.</p>
 <p>exemple :<br>
 Q: わたし/あたし<br>
 R: je</p>
