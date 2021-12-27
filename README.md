@@ -4,7 +4,7 @@ Anko est une Webapp simple permettant d'importer vos decks Anki sur le bot Kotob
 <h2>Instructions</h2>
 <p>1) Lancer Anki sur Pc<br>
 2) Fichier > Exporter > Cartes avec notes en clair<br>
-3) Lancer la Anko.html<br>
+3) Lancer Anko.html (ou le site en ligne)<br>
 4) Copier/Coller le contenu du fichier .txt<br>
 5) Choisir un mode de conversion : "Question --> lecture" ou "Question --> traduction"<br>
 6) Convertir !</p>
