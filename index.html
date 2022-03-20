@@ -1,17 +1,44 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anki --> Kotoba</title>
   <style>
     html{
       background: #222;
     }
+
+    h1{
+      color: white;
+    }
+
+    #file-input{
+      font-size: 1em;
+      position: absolute;
+      top: 13vh;
+      left: 8vw;
+      opacity: 0;
+      width: 84%;
+      height: 71.5%;
+      display: block;
+      cursor: pointer;
+    }
+
+    label{
+      width: 0;
+      height: 0;
+      opacity: 0;
+      display: block;
+      color: white;
+      font-family: 'consolas';
+    }
+
     textarea{
       border: ridge 8px white;
       font-size: 1.2em;
       width:  80vw;
-      height: 70vh;
+      height: 68vh;
     }
 
     #bottom{
@@ -29,6 +56,7 @@
       padding: 10px;
       color: #F0F0F0;
       background: #111;
+      cursor: pointer;
     }
 
     button:hover{
@@ -43,16 +71,16 @@
 </head>
 <body>
   <center>
-    <textarea id='text' placeholder='1)Anki : Fichier>exporter>cartes avec notes en clair 2)Copier/coller le contenu du fichier .txt ici 3)Choisir le mode de conversion 4)Convertir !'></textarea>
+    <h1>Anki ーー＞ Kotoba</h1>
+    <textarea id='text' placeholder=''></textarea>
+    <label for='file-input'>drag your deck here...<input type='file' id='file-input'></label>
     <br><br>
     <div id='flexbox'>
-      <button id="normal" onclick="modea()">Question --> lecture</button>
-      <button id="special" onclick="modeb()">Question --> traduction</button></div><br>
-      <button onclick='convert()'>Convertir !</button>
+      <button onclick='convert()'>Convertir & exporter !</button>
   </center>
   <p id='bottom'>By : Kyu<br><a href="https://github.com/NicoNiconiicolas/Anko">plus d'informations...</a></p>
   <script type="text/javascript">
-    var mode = 0;
+    document.getElementById('text').placeholder = '1) Anki : Fichier>exporter>cartes avec notes en clair\n2) Glisser-déposer le contenu du deck anki ici\n3) Convertir & exporter !\n\nLe deck sera alors prêt à être importer sur Kotoba\n\nLes questions ne doivent contenir auncun espace !';
     var txt = document.getElementById('text');
     var str = [];
     var part = [];
@@ -60,238 +88,65 @@
     var part2 = '';
     var i = 0;
 
-    function modea(){
-      mode = 0;
-      console.log(mode);
-      document.getElementById('normal').setAttribute('onmouseover','');
-      document.getElementById('normal').setAttribute('onmouseout','');
-      document.getElementById('normal').style.background = '#F0A0F0';
-      document.getElementById('normal').style.color = '#222';
-      document.getElementById('special').setAttribute('onmouseover','this.style.background="#F0A0F0";this.style.color="#111"');
-      document.getElementById('special').setAttribute('onmouseout','this.style.background="#111";this.style.color="#F0F0F0"');
-      document.getElementById('special').style.background = '#111';
-      document.getElementById('special').style.color = '#F0F0F0';
-    }
-
-    function modeb(){
-      mode = 1;
-      console.log(mode)
-      document.getElementById('special').setAttribute('onmouseover','');
-      document.getElementById('special').setAttribute('onmouseout','');
-      document.getElementById('special').style.background = '#F0A0F0';
-      document.getElementById('special').style.color = '#222';
-      document.getElementById('normal').setAttribute('onmouseover','this.style.background="#F0A0F0";this.style.color="#111"');
-      document.getElementById('normal').setAttribute('onmouseout','this.style.background="#111";this.style.color="#F0F0F0"');
-      document.getElementById('normal').style.background = '#111';
-      document.getElementById('normal').style.color = '#F0F0F0';
-    }
-
     function convert(){
-      if(mode == 0){
-      var send = "Question,Answers\n";
-      if(txt.value != ""){
-      str = txt.value.split('\n');
-      for(let a = 0; a < str.length; a++ ){
-        part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
-        part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
-        if(part[0] && part[1] !=''){
-          part[0] = part[0].replace(/,/g , '/');
-          part[0] = part[0].replace(/"/g , "\'");
-          send += part[0]+',"';
-          part[1] = part[1].replace(/"/g , "\'");
-          part[1] = part[1].replace(/・/g , ",");
-          part[1] = part[1].replace(/\//g, ',');
-          part[1] = part[1].replace(/、/g, ',');
-          part[1] = part[1].replace(/;/g, ',');
-          part[1] = part[1].replace(/\|/g, ',');
-          part[1] = part[1].replace(/\\/g, ',');
-          part[1] = part[1].replace(/\s/g, ',');
-          send += part[1]+'"\n'; 
-          }
-      };
-       var deck = new Blob([send], {type: "text/plain;charset=utf-8"});
-        saveAs(deck, "deck.csv");
-        window.location.href = "https://kotobaweb.com/dashboard/decks/new";
-        txt.value = "";
-      }else{
-       alert("Copiez d'abord le texte !")
-      }}else{
-      if(txt.value != ""){
-      var send = "Question,Answers,Comment,Instruction,Render as\n";
-      str = txt.value.split('\n');
-      for(let a = 0; a < str.length; a++ ){
-        var boucle = true;
-        var firstchar = str[a][0];
-        var i = 0;
-        switch(firstchar){
-          case 'a':case 'b':case 'c':case 'd':
-          case 'e':case 'f':case 'g':case 'h':
-          case 'i':case 'j':case 'k':case 'l':
-          case 'm':case 'n':case 'o':case 'p':
-          case 'q':case 'r':case 's':case 't':
-          case 'u':case 'v':case 'w':case 'x':
-          case 'y':case 'z':case ' ':
-          case 'A':case 'B':case 'C':case 'D':
-          case 'E':case 'F':case 'G':case 'H':
-          case 'I':case 'J':case 'K':case 'L':
-          case 'M':case 'N':case 'O':case 'P':
-          case 'Q':case 'R':case 'S':case 'T':
-          case 'U':case 'V':case 'W':case 'X':
-          case 'Y':case 'Z':
-          case'é':case'è':case'ê':
-          case'à':case'â':case'ô':
-          case'î':case'ù':case'\'':case'û':
-          case'+':case'*':case':':case'%':case'µ':case'$':
-          case'^':case'@':case'=':case'°':case'ç':case'_':
-          case'&':case'#':case'{':case'`':case'}':
-          case'À':case'Á':case'Â':case'Ä':case'Ã':case'Æ':
-          case'Ç':case'É':case'È':case'Ê':case'Ë':case'Í':
-          case'Ì':case'Î':case'Ï':case'Ñ':case'Ó':case'Ò':
-          case'Ô':case'Ö':case'Ø':case'Õ':case'Œ':case'Ú':
-          case'Ù':case'Û':case'Ü':case'Ý':case'Ÿ':case'Ŷ':
-          case'œ':case'ae':case'€':case'¥':case'²':
-          case'/':case',':case'\\':case'|':case';':
-          case',':case'(':case')':case"'":
-          case'-':case'.':case'"':case'[':case']':
-          case '>':case '<':case '=':
-          firstchar = 'fr';
-          break
-          case '\n':
-          break
-          default:
-          console.log(firstchar);
-          if(firstchar != undefined && firstchar != "　" && firstchar != " "){
-            firstchar = 'jp';
-          }
-          console.log(firstchar);
-          break
+      var text = document.getElementById('text');
+      var source = text.value.search('Type the reading of the below word in Hiragana');
+      if(source  == -1){
+      source = text.value.search(",,Type the reading!,Image");
+      }
+    str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
+    str = str.replace(/,,Type the reading!,Image/g , '');
+    str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
+    str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
+      str = str.replace(/, /g, '/');
+      str = str.replace(/,/g, '%');
+      var send = "Question,Answers,Comment,Instructions,Render as\n";
+      if(text.value != ""){
+      str = str.split('\n');
+      if(str[str.length-1] == ""){
+          var longueur = str.length-1;
+        }else{
+          var longueur = str.length;
         }
-
-        if(firstchar == 'fr'){
-          while(boucle == true){
-            switch(str[a][i]){
-            case 'a':case 'b':case 'c':case 'd':
-            case 'e':case 'f':case 'g':case 'h':
-            case 'i':case 'j':case 'k':case 'l':
-            case 'm':case 'n':case 'o':case 'p':
-            case 'q':case 'r':case 's':case 't':
-            case 'u':case 'v':case 'w':case 'x':
-            case 'y':case 'z':
-            case 'A':case 'B':case 'C':case 'D':
-            case 'E':case 'F':case 'G':case 'H':
-            case 'I':case 'J':case 'K':case 'L':
-            case 'M':case 'N':case 'O':case 'P':
-            case 'Q':case 'R':case 'S':case 'T':
-            case 'U':case 'V':case 'W':case 'X':
-            case 'Y':case 'Z':
-            case'é':case'è':case'ê':
-            case'à':case'â':case'ô':
-            case'î':case'ù':case'\'':case'û':
-            case'/':case',':case'\\':case'|':case';':
-            case' ':case',':case'(':case')':case"'":
-            case'　':case'-':
-            case'.':case'"':case'[':case']':
-            case'+':case'*':case':':case'%':case'µ':case'$':
-            case'^':case'@':case'=':case'°':case'ç':case'_':
-            case'&':case'#':case'{':case'`':case'}':
-            case'À':case'Á':case'Â':case'Ä':case'Ã':case'Æ':
-            case'Ç':case'É':case'È':case'Ê':case'Ë':case'Í':
-            case'Ì':case'Î':case'Ï':case'Ñ':case'Ó':case'Ò':
-            case'Ô':case'Ö':case'Ø':case'Õ':case'Œ':case'Ú':
-            case'Ù':case'Û':case'Ü':case'Ý':case'Ÿ':case'Ŷ':
-            case'œ':case'ae':case'€':case'¥':case'²':
-            case '>':case '<':case '・':case'?':case'!':case'\​':
-
-              i++
-              break
-
-              default :
-              boucle = false;
-              part1 = str[a].slice(0, i);
-              part1 = part1.replace(/\​/g , "");
-              part1 = part1.replace(/"/g , "\'");
-              part2 = str[a].slice(i+1);
-              part2 = part2.replace(/\​/g , "");
-              part2 = part2.replace(/・/g , ",");
-              part2 = part2.replace(/\s/g , ",");
-              part2 = part2.replace(/"/g , "\'");
-              part2 = part2.replace(/\//g, ',');
-              part2 = part2.replace(/;/g, ',');
-              part2 = part2.replace(/、/g, ',');
-              part2 = part2.replace(/\|/g, ',');
-              part2 = part2.replace(/\\/g, ',');
-              send += '"'+part1+'","'+part2+'",,,';
+      for(a = 0; a < longueur; a++ ){
+        if(source !=-1){
+          part[0] = str[a].split(/,(.+)/)[0];
+            part[0] = str[a].split(/%(.+)/)[0];
+            part[1] = str[a].split(/%(.+)/)[1];
+            part[1] = part[1].split(/%(.+)/)[0];
+            str[a] = part[0]+" "+part[1];
+        }
+          part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
+          part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+            if(part[0] && part[1] !=''){
+          part[0] = part[0].replace(/,/ , ' ');
+          part[1] = part[1].replace(/"/g, '');
+            part[0] = part[0].replace(/"/g , "\'");
+            send += part[0]+',"';
+            part[1] = part[1].replace(/"/g , "\'");
+            part[1] = part[1].replace(/・/g , ",");
+            part[1] = part[1].replace(/, /g , ",");
+            part[1] = part[1].replace(/\//g, ',');
+            part[1] = part[1].replace(/、/g, ',');
+            part[1] = part[1].replace(/;/g, ',');
+            part[1] = part[1].replace(/\|/g, ',');
+            part[1] = part[1].replace(/\\/g, ',');
+            part[1] = part[1].replace(/\s/g, ' ');
+              send += part[1]+'",,,';
 
               if(i <= 20){
                 send += 'Image\n';
               }else{
                 send+= 'Text\n';
               }
-              break
             }
           }
-        }else if(firstchar == 'jp'){
-          while(boucle == true){
-            switch(str[a][i]){
-            case 'a':case 'b':case 'c':case 'd':
-            case 'e':case 'f':case 'g':case 'h':
-            case 'i':case 'j':case 'k':case 'l':
-            case 'm':case 'n':case 'o':case 'p':
-            case 'q':case 'r':case 's':case 't':
-            case 'u':case 'v':case 'w':case 'x':
-            case 'y':case 'z':
-            case 'A':case 'B':case 'C':case 'D':
-            case 'E':case 'F':case 'G':case 'H':
-            case 'I':case 'J':case 'K':case 'L':
-            case 'M':case 'N':case 'O':case 'P':
-            case 'Q':case 'R':case 'S':case 'T':
-            case 'U':case 'V':case 'W':case 'X':
-            case 'Y':case 'Z':
-            case'é':case'è':case'ê':
-            case'à':case'â':case'ô':
-            case'î':case'ù':case'û':
-            case'À':case'Á':case'Â':case'Ä':case'Ã':case'Æ':
-            case'Ç':case'É':case'È':case'Ê':case'Ë':case'Í':
-            case'Ì':case'Î':case'Ï':case'Ñ':case'Ó':case'Ò':
-            case'Ô':case'Ö':case'Ø':case'Õ':case'Œ':case'Ú':
-            case'Ù':case'Û':case'Ü':case'Ý':case'Ÿ':case'Ŷ':
-            case'œ':case'ae':case'€':case'¥':case'²':case'$':
-            case'%':
-            boucle = false;
-            part1 = str[a].slice(0, i-1);
-            part1 = part1.replace(/\​/g , "");
-            part1 = part1.replace(/"/g , "\'");
-            part2 = str[a].slice(i);
-            part2 = part2.replace(/\​/g , "");
-            part2 = part2.replace(/・/g , ",");
-            part2 = part2.replace(/"/g , "\'");
-            part2 = part2.replace(/\//g, ',');
-            part2 = part2.replace(/;/g, ',');
-            part2 = part2.replace(/、/g, ',');
-            part2 = part2.replace(/\|/g, ',');
-            part2 = part2.replace(/\\/g, ',');
-            send += '"'+part1+'","'+part2+'",,,';
-            if(i <= 20){
-              send += 'Image\n';
-            }else{
-              send+= 'Text\n';
-            }
-            break
-            default :
-            i++
-            break
-            }
-          }
-        }
-      };
-        console.log(send);
         var deck = new Blob([send], {type: "text/plain;charset=utf-8"});
-        saveAs(deck, "deck.csv");
-        window.location.href = "https://kotobaweb.com/dashboard/decks/new";
+        saveAs(deck, "exported");
+        window.location.href = "https://kotobaweb.com/dashboard";
         txt.value = "";
       }else{
        alert("Copiez d'abord le texte !")
-      }
       }
     }
   </script>
@@ -467,6 +322,25 @@ _global.saveAs = saveAs.saveAs = saveAs
 if (typeof module !== 'undefined') {
   module.exports = saveAs;
 }
+
+document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+
+  function readSingleFile(e) {
+    var file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var contents = e.target.result;
+      document.getElementById('text').value = "";
+      document.getElementById('text').value = contents;
+    };
+    reader.readAsText(file);
+    var filename = document.getElementById('file-input').value.replace(/^.*[\\\/]/, '');
+    filename = filename.replace(".txt", '');
+    null;
+  }
   </script>
 </body>
 </html>
