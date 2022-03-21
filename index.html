@@ -71,7 +71,7 @@
       <button onclick='convert()'>Convertir & exporter !</button>
   </center>
   <script type="text/javascript">
-    document.getElementById('text').placeholder = '1) Anki : Fichier>exporter>cartes avec notes en clair\n2) Glisser-déposer le contenu du deck anki ici\n3) Convertir & exporter !\n\nLe deck sera alors prêt à être importer sur Kotoba\n\nLes questions ne doivent contenir auncun espace !';
+    document.getElementById('text').placeholder = '1) Anki : Fichier>exporter>cartes avec notes en clair\n2) Glisser-déposer le deck anki ici\n3) Convertir & exporter !\n\nLe deck sera alors prêt à être importer sur Kotoba\n\nLes virgules dans le champ "réponse" seront traitées comme des séparateurs pour réponses multiples !';
     var txt = document.getElementById('text');
     var str = [];
     var part = [];
@@ -83,10 +83,14 @@
       var text = document.getElementById('text');
       var source = text.value.search('Type the reading of the below word in Hiragana');
       if(source  == -1){
+      source = text.value.search(",Type the reading!,Image");
+      }
+      if(source  == -1){
       source = text.value.search(",,Type the reading!,Image");
       }
     str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
     str = str.replace(/,,Type the reading!,Image/g , '');
+    str = str.replace(/,Type the reading!,Image/g , '');
     str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
     str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
       str = str.replace(/, /g, '/');
@@ -107,8 +111,8 @@
             part[1] = part[1].split(/%(.+)/)[0];
             str[a] = part[0]+" "+part[1];
         }
-          part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
-          part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+          part[0] = str[a].split(/\t(.+)/)[0];  //everything before the first space
+          part[1] = str[a].split(/\t(.+)/)[1];  //everything after the first space
             if(part[0] && part[1] !=''){
           part[0] = part[0].replace(/,/ , ' ');
           part[1] = part[1].replace(/"/g, '');
@@ -133,7 +137,7 @@
             }
           }
         var deck = new Blob([send], {type: "text/plain;charset=utf-8"});
-        saveAs(deck, "exported");
+        saveAs(deck, "exported.csv");
         window.location.href = "https://kotobaweb.com/dashboard";
         txt.value = "";
       }else{
